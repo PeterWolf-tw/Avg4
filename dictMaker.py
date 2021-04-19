@@ -2,13 +2,14 @@
 # -*- coding:utf-8 -*-
 
 from ArticutAPI import Articut
-articut = Articut(username="peter.w@droidtown.co", apikey="5X_@6gCKOVOXp6FOiufbKBI!%w4Yr41", version="latest", level="lv1")
+articut = Articut(username="", apikey="", version="latest", level="lv1")
 
 import json
 import os
 import random
 import re
 
+#<這段產生特定詩人的詞彙字典>
 #inputDIR = "./poem/楊牧"
 
 #posDICT = {"enty":[],
@@ -42,8 +43,9 @@ import re
 
 #with open("./楊牧DICT.json", "w", encoding="utf-8") as f:
     #json.dump(posDICT, f, ensure_ascii=False)
+#</這段產生特定詩人的詞彙字典>
 
-
+#<這段讀入特定詩人的詞彙典字來做動詞、名詞和形容詞/副詞的替換>
 with open("./楊牧DICT.json") as f:
     lexiconDICT = json.loads(f.read())
 
@@ -95,3 +97,4 @@ for i in templateDICT["result_pos"]:
         resultLIST.append(re.sub(posPat, "", i))
 
 print("".join(resultLIST))
+#</這段讀入特定詩人的詞彙典字來做動詞、名詞和形容詞/副詞的替換>
